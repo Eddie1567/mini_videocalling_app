@@ -1,0 +1,17 @@
+<div class="content-wrapper">
+    <div class="content">
+        <div class="media-previews-wrapper">
+            <ng-container *ngFor="let user of usersList">
+                <app-user-media-preview [user]="user"></app-user-media-preview>
+            </ng-container>
+        </div>
+    </div>
+
+    <app-room-controls
+        (micStatusChange)="toggleMicrophone($event)"
+        (cameraStatusChange)="toggleCamera($event)"
+        (shareScreenStatusChange)="toggleScreenSharing($event)"
+        (leaveChannel)="leave()"
+        (shareRoomLink)="shareRoomLink()">
+    </app-room-controls>
+</div>

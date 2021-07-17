@@ -1,0 +1,44 @@
+<div class="control-panel">
+    <div class="control-group">
+        <app-room-control-toggle
+            activeIcon="mic"
+            activeLabel="Mute"
+            inactiveIcon="mic_off"
+            inactiveLabel="Unmute"
+            [isActive]="true"
+            (changed)="toggleMicrophone($event)">
+        </app-room-control-toggle>
+
+        <app-room-control-toggle 
+            activeIcon="videocam" 
+            activeLabel="Stop Video"
+            inactiveIcon="videocam_off"
+            inactiveLabel="Start Video"
+            [isActive]="true"
+            (changed)="toggleCamera($event)">
+        </app-room-control-toggle>
+    </div>
+
+    <div class="control-group">
+        <app-room-control-toggle 
+            activeIcon="stop_screen_share" 
+            activeLabel="Stop Sharing"
+            inactiveIcon="screen_share"
+            inactiveLabel="Share Screen"
+            [isActive]="false"
+            (changed)="toggleScreenSharing($event)">
+        </app-room-control-toggle>
+
+        <app-room-control-button
+            icon="offline_share"
+            label="Share Link"
+            (clicked)="shareLink()">
+        </app-room-control-button>
+    </div>
+
+    <div class="control-group">
+        <button mat-flat-button color="warn" (click)="leave()">
+            Leave
+        </button>
+    </div>
+</div>

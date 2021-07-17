@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-content>
+        <div class="content-wrapper">
+            <div class="column">
+                <app-camera-preview></app-camera-preview>
+            </div>
+
+            <div class="column">
+                <h1 class="column-title">Join a Room</h1>
+                <h2>Welcome to the new Video Chat App!</h2>
+                <p>Enter the details below to start or join a call:</p>
+
+                <form #form="ngForm" (ngSubmit)="joinRoom(form)">
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="form-control hidden-error">
+                            <mat-label>Room ID</mat-label>
+                            <input matInput [(ngModel)]="roomId" name="roomId" required />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="form-control hidden-error">
+                            <mat-label>Display Name</mat-label>
+                            <input matInput ngModel name="displayName" required>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                        <mat-checkbox [ngModel]="false" name="asSpectator">
+                            Join as a spectator
+                        </mat-checkbox>
+
+                        <button type="submit" mat-raised-button color="primary">
+                            JOIN
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
